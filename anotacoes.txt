@@ -1,1 +1,6 @@
-1 - ...
+# sqlserver-001-a-controle-compras
+Anotações do curso de SQL Server 1.
+
+1 - O SQL Server tmb aceita 'TRUE' ou 'FALSE', desde que entre aspas simples.
+    1 ou 0
+    'TRUE' ou 'FALSE'
