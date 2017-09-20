@@ -23,3 +23,6 @@ SELECT * FROM COMPRAS WHERE RECEBIDA = 1;
 
 /* SQL Server tmb aceita 'TRUE' ou 'FALSE', desde que entre ''. */
 SELECT * FROM COMPRAS WHERE RECEBIDA = 'TRUE';
+
+/* Busca todos os dados que NÃO tem o valor igual a X. */
+SELECT * FROM COMPRAS WHERE NOT VALOR = 108;
