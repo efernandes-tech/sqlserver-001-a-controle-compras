@@ -1,40 +1,47 @@
 USE controle_compras;
 
 /* Criando uma nova tabela. */
-create table COMPRADORES (
-    id int primary key identity not null,
-    nome nvarchar(200),
-    endereco nvarchar(200),
-    telefone nvarchar(30)
+CREATE TABLE COMPRADORES (
+id int PRIMARY KEY IDENTITY NOT NULL,
+nome nvarchar(200),
+endereco nvarchar(200),
+telefone nvarchar(30)
 );
 
 /* Inserindo dados. */
-insert into compradores values ('Guilherme Silveira', 'rua vergueiro, 3185', '12345678');
-insert into compradores values ('Gabriel Ferreira', 'av paulista , 2543', '87654321');
+INSERT INTO COMPRADORES VALUES ('Guilherme Silveira', 'rua vergueiro, 3185', '12345678');
+INSERT INTO COMPRADORES VALUES ('Gabriel Ferreira', 'av paulista , 2543', '87654321');
 
 SELECT * FROM COMPRADORES;
 
 /* Adicionando a coluna comprador_id. */
-alter table compras add comprador_id int;
+ALTER TABLE COMPRAS ADD comprador_id int;
 
 /* Definindo a foreign key. */
-alter table compras
-	add constraint FK_Compras_CompradorID foreign key (comprador_id)
-	references compradores(id);
+ALTER TABLE COMPRAS
+ADD CONSTRAINT FK_Compras_CompradorID FOREIGN KEY (comprador_id) REFERENCES COMPRADORES(id);
 
 SP_HELP COMPRAS;
 
-/* Distribuindo as compras entre os 2 compradores. */
-update compras set comprador_id = 1 where id < 22;
-update compras set comprador_id = 2 where id > 21;
+/* Distribuindo as COMPRAS entre os 2 COMPRADORES. */
+UPDATE COMPRAS SET comprador_id = 1 WHERE id < 22;
+UPDATE COMPRAS SET comprador_id = 2 WHERE id > 21;
 
 SELECT * FROM COMPRAS;
 
-/* Exibindo o nome do comprador e o valor de todas as suas compras até a data X. */
- SELECT NOME, VALOR
- FROM COMPRAS
- INNER JOIN COMPRADORES ON COMPRAS.COMPRADOR_ID = COMPRADORES.ID
- WHERE DATA < '2010-08-09';
+/* Exibindo o nome do comprador e o valor de todas as suas COMPRAS até a data X. */
+SELECT nome, valor
+FROM COMPRAS
+INNER JOIN COMPRADORES ON COMPRAS.comprador_id = COMPRADORES.id
+WHERE data < '2010-08-09';
 
 /* Exibindo a compra e o comprador. */
-SELECT * FROM COMPRAS INNER JOIN COMPRADORES ON COMPRAS.COMPRADOR_ID = COMPRADORES.ID WHERE COMPRADOR_ID = 2
+SELECT * FROM COMPRAS
+INNER JOIN COMPRADORES ON COMPRAS.comprador_id = COMPRADORES.id
+WHERE comprador_id = 2;
+
+/* Exibe o nome do comprador e a soma de todas as suas COMPRAS. */
+SELECT COMPRADORES.nome, SUM(valor) AS soma_compras
+FROM COMPRAS
+INNER JOIN COMPRADORES ON COMPRAS.comprador_id = COMPRADORES.id
+GROUP BY COMPRADORES.nome;

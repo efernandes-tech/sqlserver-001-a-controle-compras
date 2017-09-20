@@ -1,7 +1,12 @@
 # sqlserver-001-a-controle-compras
+
 Anotações do curso de SQL Server 1.
 
 1 - O SQL Server tmb aceita 'TRUE' ou 'FALSE', desde que entre aspas simples.
     1 ou 0
     'TRUE' ou 'FALSE'
 2 - Antes de preparar o UPDATE ou DELETE, sempre prepare e teste o WHERE em um SELECT.
+
+Anotações do curso de SQL Server 2.
+
+1 - ...
