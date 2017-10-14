@@ -1,12 +1,17 @@
 # sqlserver-001-a-controle-compras
 
-Anotações do curso de SQL Server 1.
+Anotações do curso 1 de SQL Server.
 
 1 - O SQL Server tmb aceita 'TRUE' ou 'FALSE', desde que entre aspas simples.
     1 ou 0
     'TRUE' ou 'FALSE'
 2 - Antes de preparar o UPDATE ou DELETE, sempre prepare e teste o WHERE em um SELECT.
 
-Anotações do curso de SQL Server 2.
+Anotações do curso 2 de SQL Server.
 
-1 - ...
+1 - Having é utilizado para filtrar o resultado de um agrupamento, resultado de uma função agregada por exemplo.
+2 - Where é usado quando queremos filtrar as linhas antes do agrupamento.
+3 - O problema em usar sub-queries é que se ela for mal escrita, será executada muitas vezes.
+    - Geralmente uma para cada linha de resposta da "consulta de fora".
+    - Isso pode fazer com que a consulta leve muito tempo para ser executada.
+    - Podendo causar a lentidão do banco de dados e das aplicações que o acessam.
